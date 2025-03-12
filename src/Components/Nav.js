@@ -4,8 +4,7 @@ import logobl from "../img/logo black.png";
 
 const Nav = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
+   const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
   };
 
@@ -14,7 +13,7 @@ const Nav = () => {
       <div className="max-w-screen-xl flex items-center justify-between mx-auto">
         {/* Logo */}
         <Link to="/" className="flex items-center mt-6">
-          <img src={logobl} className="h-14" alt="Logo" />
+          <img src={logobl} className="h-12" alt="Logo" />
         </Link>
 
         {/* Mobile Menu Toggle */}
@@ -44,9 +43,9 @@ const Nav = () => {
         >
           <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-12">
             {[
-              { to: "/", label: "Home" },
+              { to: "/home", label: "Home" },
               { to: "/will", label: "Will" },
-              { to: "/lpa", label: "LPA" },
+              { to: "/back", label: "LPA" },
               { to: "/trusts", label: "Trusts" },
               { to: "/calculators", label: "Calculators" },
               { to: "/legal", label: "Legal Services" },

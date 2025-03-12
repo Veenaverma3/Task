@@ -1,41 +1,23 @@
 import React from "react";
 import { FaArrowLeft } from "react-icons/fa";
+import ProgressSteps from "./ProgressSteps";
+import { useNavigate } from "react-router-dom";
 
 const Addattorney = () => {
+  const navigate=useNavigate();
   const steps = [
-    "Enter Donor's Information",
-    "Add Attorney",
-    "Add Preferences",
-    "Final Check: LPA Details",
+    { title: "Enter Donor's Information " },
+    { title: "Add Attorney" },
+    { title: "Add Preferences" }, 
+    { title: "Final Check: LPA Details" }
   ];
 
   return (
     <div className="flex flex-col lg:flex-row items-start justify-evenly w-full p-6 space-y-6 lg:space-y-0 lg:space-x-6">
-      {/* First Column: Progress Steps */}
-      <div className="bg-white shadow-md rounded-lg w-full max-w-xs p-6">
-        {steps.map((title, index) => (
-          <div key={index}>
-            <div className="flex items-center space-x-4">
-              <div
-                className={`h-6 w-6 rounded-full ${
-                  index <= 1 ? "bg-teal-400" : "bg-gray-400"
-                }`}
-              ></div>
-              <h2 className="text-lg font-semibold text-gray-800">{title}</h2>
-            </div>
-            {index !== steps.length - 1 && (
-              <div
-                className={`h-10 ml-2.5 w-1 my-3 ${
-                  index <= 0 ? "bg-teal-400" : "bg-gray-400"
-                }`}
-              ></div>
-            )}
-          </div>
-        ))}
-      </div>
+       <ProgressSteps steps={steps} currentStep={1} />
 
-      {/* Second Column: LPA Usage Information */}
-      <div className="flex flex-col w-full max-w-2xl space-y-6">
+
+       <div className="flex flex-col w-full max-w-2xl space-y-6">
         <div className="bg-white shadow-md rounded-lg p-8">
           <button className="flex items-center text-gray-600 text-lg font-bold hover:text-black mb-6">
             <FaArrowLeft className="mr-2 text-teal-400" />
@@ -104,7 +86,8 @@ const Addattorney = () => {
           </div>
 
           <div className="flex justify-end mt-6">
-            <button className="px-6 py-3 bg-teal-400 border text-white text-lg font-semibold rounded-full shadow-md hover:bg-teal-600 transition">
+            <button className="px-6 py-3 bg-teal-400 border text-white text-lg font-semibold rounded-full shadow-md hover:bg-teal-600 transition"
+            onClick={()=>navigate("/attorneyinfo")}>
               Continue & Add Attorney
             </button>
           </div>

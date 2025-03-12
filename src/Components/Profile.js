@@ -1,11 +1,11 @@
- 
- import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+  import React, { useState } from "react";
  import { FaArrowLeft, FaEye, FaEyeSlash } from "react-icons/fa";
  
  const Profile = () => {
    const [showPassword, setShowPassword] = useState(false);
    const [showConfirmPassword, setShowConfirmPassword] = useState(false);
- 
+ const navigate = useNavigate();
    return (
      <div className="flex flex-col items-center justify-center mb-16 mt-6 p-8">
        <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
@@ -52,7 +52,7 @@
          </div>
  
          <div className="flex justify-end">
-           <button className="w-28 bg-teal-500 text-white py-2 rounded-full hover:bg-teal-600 transition">
+           <button className="w-28 bg-teal-500 text-white py-2 rounded-full hover:bg-teal-600 transition"  onClick={() => navigate("/typeofLPA")}>
              Continue
            </button>
          </div>

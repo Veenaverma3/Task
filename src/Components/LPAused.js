@@ -1,27 +1,25 @@
 import React from "react";
 import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
+import ProgressSteps from "./ProgressSteps";
 
 const LPAused = () => {
+  const navigate = useNavigate();
+  const steps = [
+    { title: "Enter Donor's Information " },
+    { title: "Add Attorney" },
+    { title: "Add Preferences" }, 
+    { title: "Final Check: LPA Details" }
+  ];
   return (
     <div className="flex flex-col lg:flex-row items-start justify-evenly w-full p-6 space-y-6 lg:space-y-0 lg:space-x-6">
       {/* First Column: Progress Steps */}
-      <div className="bg-white shadow-md rounded-lg w-full max-w-xs p-6">
-        {["Enter Donor's Information", "Add Attorney", "Add Preferences", "Final Check: LPA Details"].map(
-          (title, index) => (
-            <div key={index}>
-              <div className="flex items-center space-x-4">
-                <div className={`h-6 w-6 rounded-full ${index === 0 ? "bg-teal-400" : "bg-gray-400"}`}></div>
-                <h2 className="text-lg font-semibold">{title}</h2>
-              </div>
-              {index !== 3 && <div className={`h-10 ml-2.5 w-1 my-3 ${index === 0 ? "bg-teal-400" : "bg-gray-400"}`}></div>}
-            </div>
-          )
-        )}
-      </div>
+      <ProgressSteps steps={steps} currentStep={1} />
 
       {/* Second Column: LPA Usage Information */}
       <div className="bg-white shadow-md rounded-lg p-12 w-full max-w-2xl">
-        <button className="flex items-center text-gray-600 text-lg font-bold hover:text-black mb-6">
+        <button className="flex items-center text-gray-600 text-lg font-bold hover:text-black mb-6 " 
+         onClick={() => navigate(-1)}>
           <FaArrowLeft className="mr-2 text-teal-400" />
           Back
         </button>
@@ -54,7 +52,8 @@ const LPAused = () => {
           </p>
         </div>
         <div className="flex justify-end">
-  <button className="w-auto mt-4 bg-teal-400 border-2 border-teal-600 text-teal-700 text-lg font-medium p-2 rounded-lg hover:bg-teal-200 transition">
+  <button className="w-auto mt-4 bg-teal-400 border-2 border-teal-600 text-teal-700 text-lg font-medium p-2 rounded-lg hover:bg-teal-200 transition"
+  onClick={()=>navigate("/addattorney")}>
     Continue
   </button>
 </div>

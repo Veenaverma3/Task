@@ -1,12 +1,16 @@
 import React from "react";
 import { FaArrowLeft } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Check = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col items-center justify-center bg-gradient-to-r from-orange-100 to-green-50 mt-10 mb-14 p-6">
       <div className="bg-white shadow-lg rounded-xl p-6 md:p-8 w-full max-w-xl">
         {/* Back Button */}
-        <button className="flex items-center text-gray-600 text-lg font-bold hover:text-black mb-6">
+        <button className="flex items-center text-gray-600 text-lg font-bold hover:text-black mb-6"
+                  onClick={() => navigate(-1)} // Navigates back to the previous page
+>
           <FaArrowLeft className="mr-2 text-teal-400" />
           Back
         </button>
@@ -34,7 +38,8 @@ const Check = () => {
 
         {/* CTA Button */}
         <div className="flex justify-end mt-6">
-          <button className="bg-teal-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-teal-600 transition">
+          <button className="bg-teal-500 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-teal-600 transition"
+          onClick={()=>navigate("/donorinfo")}>
             Add Donor
           </button>
         </div>

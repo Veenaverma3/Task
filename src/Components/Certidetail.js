@@ -3,7 +3,7 @@ import ProgressSteps from "./ProgressSteps";
 import FormCard from "./FormCard";
  import Donorinfodisplaycard from "./Donorinfodisplaycard";
 
-const Replaceattornydet = () => {
+const Certidetail = () => {
      const steps = [
       { title: "Enter Donor's Information " },
       { title: "Add Attorney" },
@@ -15,13 +15,13 @@ const Replaceattornydet = () => {
       <ProgressSteps steps={steps} currentStep={1} />
       <div className="flex flex-col w-full max-w-2xl space-y-6">
          <div className="flex flex-col space-y-6 p-8 bg-white rounded-lg shadow">
- <FormCard title={"Replacement attorney details"} navigateTo={"/provider"} />    
+ <FormCard title={"Certificate Provider details"} navigateTo={"/aboutlpa"} />    
         
         </div>
-        <Donorinfodisplaycard  firstParagraph="The Replace Attorney" />
+        <Donorinfodisplaycard   firstParagraph="The Certificate Provider"/>
       </div>
     </div>
   );
 };
 
-export default Replaceattornydet;
+export default Certidetail;
