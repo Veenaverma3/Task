@@ -4,15 +4,16 @@ import logobl from "../img/logo black.png";
 
 const Nav = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-   const toggleMobileMenu = () => {
+
+  const toggleMobileMenu = () => {
     setIsMobileMenuOpen((prev) => !prev);
   };
 
   return (
     <nav className="bg-gradient-to-r from-orange-100 to-green-50 dark:bg-gray-900">
-      <div className="max-w-screen-xl flex items-center justify-between mx-auto">
+      <div className="max-w-screen-xl flex items-center justify-between mx-auto py-4 px-6">
         {/* Logo */}
-        <Link to="/" className="flex items-center mt-6">
+        <Link to="/" className="flex items-center mt-4">
           <img src={logobl} className="h-12" alt="Logo" />
         </Link>
 
@@ -20,7 +21,7 @@ const Nav = () => {
         <button
           onClick={toggleMobileMenu}
           type="button"
-          className="md:hidden p-2 w-10 h-10 flex items-center justify-center text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="md:hidden p-2 w-10 h-10 flex items-center justify-center text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
           aria-expanded={isMobileMenuOpen}
         >
           <span className="sr-only">Toggle menu</span>
@@ -41,23 +42,24 @@ const Nav = () => {
             isMobileMenuOpen ? "block" : "hidden"
           }`}
         >
-          <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-12">
+          <div className="flex flex-col md:flex-row md:items-center space-y-4 md:space-y-0 md:space-x-10">
             {[
-              { to: "/home", label: "Home" },
-              { to: "/will", label: "Will" },
-              { to: "/back", label: "LPA" },
-              { to: "/trusts", label: "Trusts" },
+              { to: "/", label: "Home" },
+              { to: "/", label: "Will" },
+              { to: "/", label: "LPA" },
+              { to: "/", label: "Trusts" },
               { to: "/calculators", label: "Calculators" },
-              { to: "/legal", label: "Legal Services" },
-            ].map((link) => (
+              { to: "/", label: "Legal Services" },
+            ].map(({ to, label }) => (
               <Link
-                key={link.to}
-                to={link.to}
-                className="text-black font-serif text-xl hover:text-emerald-300 transition duration-200"
+                key={to}
+                to={to}
+                className="text-black font-serif text-lg hover:text-emerald-400 transition duration-200"
               >
-                {link.label}
+                {label}
               </Link>
             ))}
+            {/* Get Started Button */}
             <Link
               to="/get-started"
               className="text-white font-serif text-lg bg-teal-500 rounded-xl px-6 py-2 hover:bg-teal-400 transition duration-200"
